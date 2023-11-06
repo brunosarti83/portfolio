@@ -1,15 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { RoutesHelper } from './utils/routes';
-import Home from "./Views/Home/Home";
+import { Routes, Route } from "react-router-dom";
+import Display from "./Views/Display/Display";
+
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={RoutesHelper.home} element={<Home/>}/>
-      </Routes>
-    </BrowserRouter>
+    <div className="w-screen h-screen bg-gradient-to-tl from-slate-300 to-[#00FFB2] flex">
+      <Display/>
+    </div>
   )
 }
 
