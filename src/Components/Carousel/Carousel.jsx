@@ -8,15 +8,15 @@ export default function Carousel({ images }) {
   };
 
   useEffect(() => {
-    const changePhoto = setInterval(() => {
+    const changePhoto = setTimeout(() => {
       if (currentIndex === images.length - 1) {
         setCurrentIndex(0);
       } else {
         setCurrentIndex((previous) => previous + 1);
       }
-    }, 2000);
-    return () => clearInterval(changePhoto);
-  }, []);
+    }, 1000);
+    return () => clearTimeout(changePhoto);
+  }, [currentIndex]);
 
   return (
     <div className="w-[600px] flex flex-col">
