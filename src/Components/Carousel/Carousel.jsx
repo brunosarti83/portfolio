@@ -14,18 +14,18 @@ export default function Carousel({ images }) {
       } else {
         setCurrentIndex((previous) => previous + 1);
       }
-    }, 1000);
+    }, 1500);
     return () => clearTimeout(changePhoto);
   }, [currentIndex]);
 
   return (
-    <div className="w-[600px] flex flex-col">
+    <div className="w-full flex flex-col">
       <img
         key={currentIndex}
         src={images[currentIndex].url}
-        className="transition ease-in-out"
+        className="transition ease-in-out drop-shadow-md"
       />
-      <div className="w-full h-[20px] bg-red flex justify-center gap-2">
+      {/* <div className="w-full h-[20px] flex justify-center gap-2">
         {images.map((_, index) => (
           <div
             key={index}
@@ -35,7 +35,7 @@ export default function Carousel({ images }) {
             onClick={() => handleDotClick(index)}
           ></div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
