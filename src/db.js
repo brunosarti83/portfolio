@@ -32,10 +32,10 @@ export const projects = [
             name: "bookings",
             url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729664/bxytjlmxcrbl5h3i14sc.png",
         },
-        {
-            name: "contact",
-            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729710/cv5k5b45viewxnrm2fm5.png",
-        },
+        // {
+        //     name: "contact",
+        //     url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729710/cv5k5b45viewxnrm2fm5.png",
+        // },
         {
             name: "detail",
             url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729764/vewz8z4vfcgo9evqgqzz.png",
