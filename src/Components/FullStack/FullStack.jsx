@@ -3,7 +3,7 @@ import keyboard from "../../assets/keyboar_1.png";
 
 export default function FullStack() {
   return (
-    <div className="w-full h-[510px] bg-[#0F0F0F] relative">
+    <div className="w-full h-[calc(100%_-_90px)] bg-[#0F0F0F] relative">
       <SvgText />
       <img
         src={keyboard}

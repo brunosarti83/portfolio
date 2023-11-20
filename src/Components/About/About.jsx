@@ -2,10 +2,10 @@ import aboutImg from "../../assets/aboutImg.jpeg";
 
 export default function About() {
   return (
-    <div className="h-[520px] w-full flex flex-col gap-5 bg-gradient-to-t from-red-100 to-[#FF0000] to-15% px-20">
-      <div className="h-[80%] flex pt-4 justify-center gap-4">
-        <div className="min-w-[45%] h-full bg-yellow-400 flex pl-16 pr-24 ml-auto font-source text-[14px] rounded-bl-3xl">
-          <div className="my-auto">
+    <div className="h-[calc(100%_-_90px)] w-full flex flex-col gap-5 bg-gradient-to-t from-red-100 to-[#FF0000] to-15% px-20">
+      <div className="h-[80%] max-w-[95%] flex pt-4 justify-center gap-4 m-auto">
+        <div className="w-[45%] h-full bg-yellow-400 flex pl-16 pr-24 ml-auto font-source text-[1.8vh] rounded-bl-3xl">
+          <div className="m-auto">
             <span className="font-source leading-5 shadowed-text">
               Hi, i’m a recently graduated
             </span>
@@ -63,11 +63,11 @@ export default function About() {
             <br />
           </div>
         </div>
-        <div className="min-w-[45%] h-full mr-auto overflow-hidden m-0 rounded-r-3xl">
+        <div className="w-[45%] h-full mr-auto overflow-hidden p-0 rounded-r-3xl">
           <img
             src={aboutImg}
             alt="about image"
-            className="rotate-90 object-cover h-full w-full object-center"
+            className="rotate-90 object-cover object-center p-0 m-0"
           />
         </div>
       </div>

@@ -72,4 +72,55 @@ export const projects = [
         deploy: "https://rodarrent.vercel.app/",
         repository: "https://github.com/brunosarti83/RodarRent-backend",
     },
+    {
+        name: "POKEMON-APP (PokeAPI)",
+        description:
+        "This was an academic individual project to refactor certain endpoints of the Pokemon API available at https://pokeapi.co in order to generate your own RestAPI as well as a complete frontend app.",
+        techs: {
+        Backend: "PostgreSQL, Node, Express, Sequelize",
+        Frontend: "React, CSS Modules",
+        },
+        features: [
+        "All CRUD operations",
+        "Redux",
+        "Pagination",
+        "Search",
+        "Forms with JS fields validation",
+        "Upload user images to Cloudinary storage"
+        ],
+        images: [
+        {
+            name: "landing",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729456/rhri0tbahdxt1iqprgtk.webp",
+        },
+        {
+            name: "hero",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729606/pdfq0fa2phq25b8tyymz.webp",
+        },
+        {
+            name: "cards",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729664/f9htjpsxmuutxriusudt.webp",
+        },
+        {
+            name: "filter",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729764/aycnana52ib8sii4tuuo.webp",
+        },
+        {
+            name: "details",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729802/ndgsftatrdtz4p0vzjzc.webp",
+        },
+        {
+            name: "create",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729846/uq5baaleouhcdkzqk3vt.webp",
+        },
+        ],
+        deploy: "https://pokemonapp-eight.vercel.app/",
+        repository: "https://github.com/brunosarti83/pokemonapp",
+    },
 ];
+
+export const questions = {
+    skills: ["React", "Node", "Typescript", "CSS / Styling", "Databases"],
+    not: ["Angular", ".NET", "Mobile"]
+}
+
