@@ -2,7 +2,7 @@ import Form from "../../../Components/Form/Form";
 
 export default function Feedback() {
   return (
-    <div className="flex h-[calc(100%_-_90px)] w-full bg-green-100">
+    <div className="flex min-h-[calc(100%_-_90px)] w-full bg-green-100">
       <div className="flex flex-col w-[55%] pl-8 pr-4 mt-2">
         <h1 className="font-work font-extrabold text-[85px] leading-[72px] text-green-100 drop-shadow-dark">
           Would you mind a question?

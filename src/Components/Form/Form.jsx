@@ -41,11 +41,15 @@ export default function Form() {
     formCopy.question2[1].other = e.target.value;
     setForm({ ...formCopy });
   };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+  };
   return (
     <div className="flex flex-col h-full w-[90%] bg-[#F0F0F0] drop-shadow-md rounded-3xl p-1 pt-4">
       <form className="m-auto w-[95%]">
         <div className="flex flex-col mx-auto">
-          <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-1 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
+          <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-2 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
             <label htmlFor="question1">
               1. Would you click on these skills in order of importance for you
               or for the position you where looking to fill ?
@@ -79,13 +83,21 @@ export default function Form() {
               </div>
             ))}
           </div>
-          <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-1 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
+          <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-2 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
             <label htmlFor="question2">
               2. Where you looking for something you didn’t find here ?
             </label>
-            <span className="ml-auto">Clear</span>
+            <span
+              className="ml-auto cursor-pointer"
+              onClick={() => {
+                setForm({ ...form, question2: [[], { other: "" }] });
+                setDisabledInput(true);
+              }}
+            >
+              Clear
+            </span>
           </div>
-          <div className="flex flex-col bg-gray-300 pb-2 pt-1">
+          <div className="flex flex-col bg-gray-300 pb-2 pt-1 px-6">
             {questions.not.map((skill) => (
               <div
                 key={skill}
@@ -93,7 +105,7 @@ export default function Form() {
               >
                 <input
                   type="checkbox"
-                  defaultChecked={form.question2[0].includes(skill)}
+                  checked={form.question2[0].includes(skill)}
                   value={skill}
                   onClick={onClickTwo}
                   className="cursor-pointer"
@@ -108,6 +120,7 @@ export default function Form() {
               <input
                 type="checkbox"
                 value="Other"
+                checked={!disabledInput}
                 className=""
                 onClick={() => {
                   setDisabledInput((prev) => !prev);
@@ -128,7 +141,10 @@ export default function Form() {
             </div>
           </div>
         </div>
-        <div className="w-full h-full text-center align-middle font-source font-bold m-auto py-2">
+        <div
+          className="w-full text-center align-middle font-source font-bold m-auto py-2 cursor-pointer"
+          onClick={onSubmit}
+        >
           Submit
         </div>
       </form>

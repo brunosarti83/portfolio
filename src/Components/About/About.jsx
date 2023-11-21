@@ -67,7 +67,7 @@ export default function About() {
           <img
             src={aboutImg}
             alt="about image"
-            className="rotate-90 object-cover object-center p-0 m-0"
+            className="object-cover object-center p-0 m-0"
           />
         </div>
       </div>

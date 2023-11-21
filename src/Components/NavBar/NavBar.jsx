@@ -1,5 +1,7 @@
 // https://designshack.net/articles/css/inner-shadows-in-css-images-text-and-beyond/
 
+import SlashingButton from "../SlashingButton/SlashingButton";
+
 export default function NavBar() {
   return (
     <div className="w-full h-[90px] bg-white flex align-center sticky top-0 left-0 px-10 z-20">
@@ -11,9 +13,11 @@ export default function NavBar() {
           <li className="font-source font-semibold my-auto">About me</li>
           <li className="font-source font-semibold my-auto">Projects</li>
           <li className="font-source font-semibold my-auto">
-            <div className="bg-white px-5 py-3 drop-shadow-md rounded-lg my-auto">
-              Download CV
-            </div>
+            <SlashingButton
+              text="Download CV"
+              primary="black"
+              secondary="white"
+            />
           </li>
           <li className="font-source font-semibold my-auto">Feedback</li>
         </ul>
