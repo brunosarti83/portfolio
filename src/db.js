@@ -124,5 +124,9 @@ export const questions = {
     not: ["Angular", ".NET", "Mobile"]
 }
 
+export const socialMedia = {
+    linkedin: "https://www.linkedin.com/in/brunosarti83/",
+    github: "https://github.com/brunosarti83",
+}
 
 export const api_token = '883ee7e3220291e91f461c5f64da32f6c29bbde9'

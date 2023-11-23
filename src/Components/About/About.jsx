@@ -1,11 +1,14 @@
+import { useNavigate } from "react-router";
 import aboutImg from "../../assets/aboutImg.jpeg";
+import { RoutesHelper } from "../../utils/routes";
 
 export default function About() {
+  const navigate = useNavigate();
   return (
     <div className="h-[calc(100%_-_90px)] w-full flex flex-col gap-5 bg-gradient-to-t from-red-100 to-[#FF0000] to-15% px-20">
       <div className="h-[80%] max-w-[95%] flex pt-4 justify-center gap-4 m-auto">
         <div className="w-[45%] h-full bg-yellow-400 flex pl-16 pr-24 ml-auto font-source text-[1.8vh] rounded-bl-3xl">
-          <div className="m-auto">
+          <div className="m-auto pt-2">
             <span className="font-source leading-5 shadowed-text">
               Hi, i’m a recently graduated
             </span>
@@ -71,7 +74,10 @@ export default function About() {
           />
         </div>
       </div>
-      <div className="w-full font-source text-[16px] font-semibold text-center bg-[#0f0f0f] text-white p-4 mb-7 rounded-md shadow-md shadow-gray-800">
+      <div
+        className={`w-full font-source text-[16px] mx-auto font-semibold text-center bg-[#0f0f0f] text-white p-4 mb-4 rounded-md shadow-md shadow-gray-800 transition-size duration-1000 hover:w-[35%] hover:cursor-pointer`}
+        onClick={() => navigate(RoutesHelper.projects)}
+      >
         Continue to Projects
       </div>
     </div>
