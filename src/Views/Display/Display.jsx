@@ -7,7 +7,8 @@ import Feedback from "../Feedback/Feedback";
 
 function Display() {
   return (
-    <div className="w-full h-full bg-white relative overflow-y-scroll scrollbar-none shadow-md z-10">
+    <div className="w-full h-0 pb-[56%] bg-white relative overflow-y-scroll scrollbar-none z-10 m-auto shadow-md shadow-gray-400">
+      <div className="w-full h-full absolute top-0 left-0 bottom-0 right-0">
       <NavBar />
       <Routes>
         <Route path={RoutesHelper.home} element={<Home />} />
@@ -15,6 +16,7 @@ function Display() {
         <Route path={RoutesHelper.projects} element={<Projects />} />
         <Route path={RoutesHelper.feedback} element={<Feedback />} />
       </Routes>
+      </div>
     </div>
   );
 }

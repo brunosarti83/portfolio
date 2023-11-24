@@ -5,7 +5,8 @@ import { socialMedia } from "../../db";
 
 export default function SideBar() {
   return (
-    <div className="h-full max-w-26px flex flex-col gap-4 mr-auto justify-center">
+    <div className="h-full max-w-26px flex m-auto">
+      <div className="flex flex-col gap-4 justify-center my-auto">
       <a href={socialMedia.linkedin}>
         <img
           src={linkedinIcon}
@@ -26,6 +27,7 @@ export default function SideBar() {
           alt={"gmail"}
           className="transition-size duration-1000 hover:transform-gpu hover:scale-150 hover:cursor-pointer"
         />
+      </div>
       </div>
     </div>
   );
