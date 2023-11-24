@@ -75,7 +75,7 @@ export default function About() {
         </div>
       </div>
       <div
-        className={`w-full font-source text-[16px] mx-auto font-semibold text-center bg-[#0f0f0f] text-white p-4 mb-4 rounded-md shadow-md shadow-gray-800 transition-size duration-1000 hover:w-[35%] hover:cursor-pointer`}
+        className={`w-full font-source text-[16px] mx-auto font-semibold text-center bg-[#0f0f0f] text-white p-4 mb-4 rounded-md shadow-md shadow-gray-800 hover:cursor-pointer transition-all duration-1000 hover:translate-y-[-5px]`}
         onClick={() => navigate(RoutesHelper.projects)}
       >
         Continue to Projects
