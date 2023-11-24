@@ -15,6 +15,18 @@ export default {
       },
       dropShadow: {
         'dark': '-8px 8px 4px rgba(0, 0, 0, 0.2)',
+      },
+      keyframes: {
+        fade: {
+          '0%': {opacity: 0.3},
+          '20%': {opacity: 1},
+          '50%': {opacity: 1},
+          '80%': {opacity: 1},
+          '100%': {opacity: 0.3},
+        }
+      },
+      animation: {
+        'fade': 'fade 5s ease-in-out infinite'
       }
     },
   },

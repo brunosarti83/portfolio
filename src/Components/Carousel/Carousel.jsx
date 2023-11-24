@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 
 export default function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const handleDotClick = (index) => {
-    setCurrentIndex(index);
-  };
+  // const handleDotClick = (index) => {
+  //   setCurrentIndex(index);
+  // };
 
   useEffect(() => {
     const changePhoto = setTimeout(() => {
@@ -14,7 +14,7 @@ export default function Carousel({ images }) {
       } else {
         setCurrentIndex((previous) => previous + 1);
       }
-    }, 1500);
+    }, 5000);
     return () => clearTimeout(changePhoto);
   }, [currentIndex]);
 
@@ -23,8 +23,9 @@ export default function Carousel({ images }) {
       <img
         key={currentIndex}
         src={images[currentIndex].url}
-        className="transition ease-in-out drop-shadow-md"
+        className="shadow-lg shadow-gray-400 animate-fade"
       />
+
       {/* <div className="w-full h-[20px] flex justify-center gap-2">
         {images.map((_, index) => (
           <div
