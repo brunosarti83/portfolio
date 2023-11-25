@@ -2,20 +2,24 @@
 import githubIcon from "../../assets/githubB.svg";
 import Carousel from "../../Components/Carousel/Carousel";
 import BigButton from "../BigButton/BigButton";
-import { FaArrowDown } from "react-icons/fa";
 
-export default function Project({ id, project }) {
+export default function Project({ project }) {
   return (
-    <div className="flex w-full h-full min-h-[70vh] bg-[#F0F0F0] py-4">
+    <div className="flex w-full h-full pl-6 pt-6 z-[5]">
       <div className="flex flex-col w-1/2 p-2 mx-auto gap-10 pl-4">
         <Carousel images={project.images} />
         <div className="flex mx-auto justify-between gap-8 -pl-2">
-          <BigButton centralText="Visit Site" fill={true} />
+          <BigButton
+            centralText="Visit Site"
+            fill={true}
+            href={project.deploy}
+          />
           <BigButton
             overText="Visit"
             centralText="Repository"
             fill={false}
             icon={githubIcon}
+            href={project.repository}
           />
         </div>
       </div>
@@ -44,11 +48,6 @@ export default function Project({ id, project }) {
           </ul>
         </div>
       </div>
-      {id > 1 && (
-        <div className="absolute bottom-4 right-8 animate-bounce">
-          <FaArrowDown color="#444444" />
-        </div>
-      )}
     </div>
   );
 }

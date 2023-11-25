@@ -3,9 +3,14 @@ import { useState, useEffect } from "react";
 
 export default function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const handleDotClick = (index) => {
-  //   setCurrentIndex(index);
-  // };
+
+  // this useEffect is supposed to force react to preload images resulting in less junkiness; not sure it works, will test in production
+  useEffect(() => {
+    images.forEach((picture) => {
+      const img = new Image();
+      img.src = picture.fileName;
+    });
+  }, []);
 
   useEffect(() => {
     const changePhoto = setTimeout(() => {
@@ -25,18 +30,6 @@ export default function Carousel({ images }) {
         src={images[currentIndex].url}
         className="shadow-lg shadow-gray-400 animate-fade"
       />
-
-      {/* <div className="w-full h-[20px] flex justify-center gap-2">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`w-[6px] h-[6px] rounded-lg my-auto hover:cursor-pointer ${
-              currentIndex === index ? "bg-red-500" : "bg-slate-700"
-            }`}
-            onClick={() => handleDotClick(index)}
-          ></div>
-        ))}
-      </div> */}
     </div>
   );
 }

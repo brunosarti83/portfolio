@@ -21,7 +21,7 @@ export default function Feedback() {
           </p>
         </div>
       </div>
-      <div className="h-[95%] w-[40%] m-auto">
+      <div className="h-[100%] w-[40%] m-auto">
         <Form />
       </div>
     </div>

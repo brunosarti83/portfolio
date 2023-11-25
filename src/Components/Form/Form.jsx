@@ -46,7 +46,7 @@ export default function Form() {
     console.log(form);
   };
   return (
-    <div className="flex flex-col h-full w-[90%] bg-[#F0F0F0] drop-shadow-md rounded-3xl p-1 pt-4">
+    <div className="flex flex-col h-full w-[90%] bg-[#F0F0F0] drop-shadow-md rounded-3xl p-1 py-4">
       <form className="m-auto w-[95%]">
         <div className="flex flex-col mx-auto">
           <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-2 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
