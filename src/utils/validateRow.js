@@ -10,7 +10,7 @@ export const validateRow = (row) => {
         Q2_options, 
         Q2_others
     } = row
-    const Q1 = [Q1_pos1, Q1_pos2, Q1_pos3, Q1_pos4, Q1_pos5]
+    const Q1 = [Q1_pos1, Q1_pos2, Q1_pos3, Q1_pos4, Q1_pos5].filter((item)=> Boolean(item))
     Q1.forEach(q => {
         if (q && !questions.skills.includes(q)) {
             throw new Error(`${q} is not a valid option for question 1`)

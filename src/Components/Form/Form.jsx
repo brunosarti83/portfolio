@@ -1,8 +1,11 @@
 import { questions } from "../../db";
 import { useState } from "react";
+import { formatRow } from "../../utils/formatRow";
+import { postAnswer } from "../../utils/postAnswer";
+import { useReset } from "../../utils/useReset";
 
 export default function Form() {
-  const [form, setForm] = useState({
+  const [form, setForm, resetForm] = useReset({
     question1: [],
     question2: [[], { other: "" }],
   });
@@ -41,12 +44,20 @@ export default function Form() {
     formCopy.question2[1].other = e.target.value;
     setForm({ ...formCopy });
   };
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
+    const response = await postAnswer({
+      row: formatRow(form),
+      table_name: "Answers",
+    });
+    if (Object.keys(response).length === 11) {
+      console.log("success");
+      resetForm();
+      setDisabledInput(true);
+    }
   };
   return (
-    <div className="flex flex-col h-full w-[90%] bg-[#F0F0F0] drop-shadow-md rounded-3xl p-1 py-4">
+    <div className="flex flex-col h-full w-[90%] bg-[#F0F0F0] drop-shadow-md rounded-md p-2 py-4">
       <form className="m-auto w-[95%]">
         <div className="flex flex-col mx-auto">
           <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-2 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
@@ -107,7 +118,7 @@ export default function Form() {
                   type="checkbox"
                   checked={form.question2[0].includes(skill)}
                   value={skill}
-                  onClick={onClickTwo}
+                  onChange={onClickTwo}
                   className="cursor-pointer"
                 />
                 <span className="">{skill}</span>
@@ -122,7 +133,7 @@ export default function Form() {
                 value="Other"
                 checked={!disabledInput}
                 className=""
-                onClick={() => {
+                onChange={() => {
                   setDisabledInput((prev) => !prev);
                   setForm({
                     ...form,

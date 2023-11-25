@@ -1,4 +1,3 @@
-import axios from "axios";
 import { getBaseToken, postNewEntry } from "./seaTableFoo.js";
 import { api_token } from "../db.js";
 import { validateRow } from "./validateRow.js";
