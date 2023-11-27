@@ -16,12 +16,12 @@ export default function Projects() {
 
   return (
     <div
-      className={`flex flex-col ${dynamicTailwind.containerHeight} bg-[#F0F0F0] relative before:content-[""] before:w-[30%] before:h-[30%] before:rounded-[100%] before:absolute before:left-[72%] before:top-[25%] before:bg-[#F0F0F3] before:z-1 before:shadow-inner after:content-[""] after:w-[30%] after:h-[30%] after:rounded-[100%] after:absolute after:top-[25%] after:left-[72%] after:bg-[#F0F0F0] after:z-2 after:scale-75 after:shadow-md`}
+      className={`flex flex-col bg-[#F0F0F0] relative before:content-[""] before:w-[30%] before:h-[30%] before:rounded-[100%] before:absolute before:left-[72%] before:top-[25%] before:bg-[#F0F0F3] before:z-1 before:shadow-inner after:content-[""] after:w-[30%] after:h-[30%] after:rounded-[100%] after:absolute after:top-[25%] after:left-[72%] after:bg-[#F0F0F0] after:z-2 after:scale-75 after:shadow-md`}
     >
       {projects.map((project, index) => (
         <div
           key={project.name}
-          className={`flex flex-col bg-[#F0F0F0] ${dynamicTailwind.proportionalHeight}`}
+          className={`flex flex-col bg-[#F0F0F0] ${dynamicTailwind.proportionalHeight} min-h-[60vh]`}
         >
           <Project key={project.name} project={project} />
           {index === 0 && (

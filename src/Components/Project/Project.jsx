@@ -5,7 +5,7 @@ import BigButton from "../BigButton/BigButton";
 
 export default function Project({ project }) {
   return (
-    <div className="flex w-full h-full pl-6 pt-6 z-[5]">
+    <div className="flex w-full h-[calc(100%_-_90px)] bg-[#F0F0F0] pl-6 pt-6 z-[5]">
       <div className="flex flex-col w-1/2 p-2 mx-auto gap-10 pl-4">
         <Carousel images={project.images} />
         <div className="flex mx-auto justify-between gap-8 -pl-2">
