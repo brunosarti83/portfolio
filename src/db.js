@@ -21,8 +21,12 @@ export const projects = [
         ],
         images: [
         {
-            name: "adminDashboard",
-            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729456/jyju0kpfqtqkekedm2v5.png",
+            name: "landing",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729935/p0yz3hjbs747vmv78pvc.png",
+        },
+        {
+            name: "login",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729969/qdbo0mht13mp1uioj0uj.png",
         },
         {
             name: "adminNewVehicle",
@@ -49,16 +53,12 @@ export const projects = [
             url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729846/f6q2dlmw6gmxzqktuj4a.png",
         },
         {
+            name: "adminDashboard",
+            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729456/jyju0kpfqtqkekedm2v5.png",
+        },
+        {
             name: "filterDark",
             url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729887/xzmvow9clkohma7tukbj.png",
-        },
-        {
-            name: "landing",
-            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729935/p0yz3hjbs747vmv78pvc.png",
-        },
-        {
-            name: "login",
-            url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729969/qdbo0mht13mp1uioj0uj.png",
         },
         {
             name: "main",

@@ -23,7 +23,7 @@ export default {
           '50%': {opacity: 1},
           '80%': {opacity: 1},
           '100%': {opacity: 0.3},
-        }
+        },
       },
       animation: {
         'fade': 'fade 5s ease-in-out infinite'
