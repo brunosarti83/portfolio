@@ -34,7 +34,7 @@ export default function SideBar() {
         </div>
       </div>
       <Modal
-        className="w-1/3 min-h-[70dvh] p-4 bg-zinc-300 rounded-md flex flex-col"
+        className="w-1/2 min-h-[60dvh] p-2 bg-zinc-800 rounded-md flex"
         overlayClassName="fixed inset-0 flex items-center justify-center bg-opacity-40 bg-black z-50"
         isOpen={emailModalOpen}
         onRequestClose={() => setEmailModalOpen(false)}
