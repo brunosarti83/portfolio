@@ -7,6 +7,8 @@ import { RoutesHelper } from "../../utils/routes";
 export default function NavBar() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const neon =
+    "transition-all duration-1000 tracking-wide font-medium text-[#fff] [text-shadow:0_0_3px_#fff,_0_0_7px_#fc8c03,_0_0_10px_#0fa,_0_0_21px_#0fa,_0_0_42px_#0fa,_0_0_52px_#0fa,_0_0_82px_#0fa,_0_0_95px_#0fa,_0_0_105px_#45423f]";
 
   const onClick = (to) => {
     if (to !== pathname) {
@@ -22,13 +24,17 @@ export default function NavBar() {
       <div className="w-1/2 self-center text-sm ml-auto text-gray-800">
         <ul className="flex flex-row justify-around">
           <li
-            className={`font-source font-semibold my-auto hover:cursor-pointer relative`}
+            className={`font-source font-semibold my-auto hover:cursor-pointer relative ${
+              pathname === RoutesHelper.home && neon
+            }`}
             onClick={() => onClick(RoutesHelper.about)}
           >
             About me
           </li>
           <li
-            className="font-source font-semibold my-auto hover:cursor-pointer"
+            className={`font-source font-semibold my-auto hover:cursor-pointer relative ${
+              pathname === RoutesHelper.projects && neon
+            }`}
             onClick={() => onClick(RoutesHelper.projects)}
           >
             Projects
@@ -41,7 +47,9 @@ export default function NavBar() {
             />
           </li>
           <li
-            className="font-source font-semibold my-auto hover:cursor-pointer"
+            className={`font-source font-semibold my-auto hover:cursor-pointer relative ${
+              pathname === RoutesHelper.feedback && neon
+            }`}
             onClick={() => onClick(RoutesHelper.feedback)}
           >
             Feedback
