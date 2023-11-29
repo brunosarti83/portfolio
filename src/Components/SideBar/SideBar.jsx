@@ -37,6 +37,7 @@ export default function SideBar() {
         className="w-1/2 min-h-[60dvh] p-2 bg-zinc-800 rounded-md flex"
         overlayClassName="fixed inset-0 flex items-center justify-center bg-opacity-40 bg-black z-50"
         isOpen={emailModalOpen}
+        ariaHideApp={false}
         onRequestClose={() => setEmailModalOpen(false)}
       >
         <EmailModal onClose={() => setEmailModalOpen(false)} />

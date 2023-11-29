@@ -51,7 +51,7 @@ export default function Form() {
       table_name: "Answers",
     });
     if (Object.keys(response).length === 11) {
-      console.log("success");
+      console.log("success"); // could replace with toast
       resetForm();
       setDisabledInput(true);
     }

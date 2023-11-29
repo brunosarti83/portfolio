@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useReset } from "../../utils/useReset";
 import emailjs from "@emailjs/browser";
-import lego from "../../assets/lego.jpg";
+import image from "../../assets/beard.jpg";
 
 export default function EmailModal({ onClose }) {
-  const [form, setForm] = useState({
+  const [form, setForm, resetForm] = useReset({
     email: "",
     message: "",
   });
@@ -15,17 +15,19 @@ export default function EmailModal({ onClose }) {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("Send email clicked");
-    emailjs.sendForm("serviceId", "templateId", e.target, "publicKey");
-    //careful with e.target i'm using a simple onClick
+    emailjs.sendForm(import.meta.env.VITE_serviceId, import.meta.env.VITE_templateId, e.target, import.meta.env.VITE_publicKey);
+    resetForm()
+    onClose()
   };
   return (
     <div className="w-full h-full flex mx-auto gap-2">
       <div className="w-[50%] h-1000 bg-red-200 ml-auto overflow-hidden">
-        <img src={lego} alt="mail illustration" className="object-cover h-full object-center p-0 m-0"/>
+        <img src={image} alt="mail illustration" className="object-cover h-full object-center p-0 m-0"/>
       </div>
       <div className="w-[50%] h-full ml-auto p-4 pt-[70px] pb-[50px] bg-zinc-100 rounded-[2px]">
-      <form className="w-full h-full flex flex-col gap-14 font-source">
+      <form
+      onSubmit={onSubmit} 
+      className="w-full h-full flex flex-col gap-14 font-source">
         <div className="flex gap-4">
           <label className="text-md font-semibold text-gray-800 w-1/6">
             From:
@@ -55,15 +57,16 @@ export default function EmailModal({ onClose }) {
             name="message"
             onChange={onChange}
             value={form.message}
+            placeholder="Type your message"
             className="bg-zinc-200 text-sm text-gray-800 h-[12rem] border-b-2 border-slate-500"
           />
         </div>
-        <div
-          className="w-2/4 py-1 bg-gray-800 text-center mx-auto rounded-sm mt-4 text-[#F0F0F0] font-source font-semibold relative left-[120px]"
-          onClick={onSubmit}
+        <button
+          type="submit"
+          className={`w-2/4 py-1 bg-gray-800 text-center mx-auto rounded-sm mt-4 text-[#F0F0F0] font-source font-semibold relative left-[40%] hover:cursor-pointer`}
         >
-          Send
-        </div>
+          {"Send"}
+        </button>
       </form>
     </div>
     </div>
