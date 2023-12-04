@@ -10,7 +10,9 @@ function App() {
           <Display />
           <SideBar />
         </div>
-        <BottomBar />
+        <div className="invisible md:visible">
+          <BottomBar />
+        </div>
       </div>
     </div>
   );

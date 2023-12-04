@@ -9,8 +9,8 @@ import EmailModal from "../EmailModal/EmailModal";
 export default function SideBar() {
   const [emailModalOpen, setEmailModalOpen] = useState(false);
   return (
-    <div className="h-full max-w-26px flex m-auto">
-      <div className="flex flex-col gap-4 justify-center my-auto">
+    <div className="h-[100px] md:h-full md:max-w-26px flex m-auto">
+      <div className="flex md:flex-col gap-12 md:gap-4 justify-around md:justify-center my-auto">
         <a href={socialMedia.linkedin}>
           <img
             src={linkedinIcon}
