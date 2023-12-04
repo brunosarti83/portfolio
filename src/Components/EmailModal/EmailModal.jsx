@@ -17,14 +17,14 @@ export default function EmailModal({ onClose }) {
     email: false,
     message: false,
   });
-  // todo esto puede ser un solo hook
 
   const onChange = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     setForm({ ...form, [field]: value });
-    //missing validation
+    setErrors(validateMessage({...form, [field]: value}))
   };
+
   const onSubmit = (e) => {
     e.preventDefault();
     emailjs.sendForm(
@@ -36,6 +36,8 @@ export default function EmailModal({ onClose }) {
     resetForm();
     onClose();
   };
+  let disabled = (errors.email || errors.message || !form.email || !form.message)
+
   return (
     <div className="w-full h-full flex mx-auto gap-2">
       <div className="w-[50%] h-1000 bg-red-200 ml-auto overflow-hidden">
@@ -54,6 +56,18 @@ export default function EmailModal({ onClose }) {
             <label className="text-md font-semibold text-gray-800 w-1/6">
               From:
             </label>
+            <div 
+             className="w-[30px] flex justify-center items-center relative"
+              onMouseEnter={() => setShowErrors({ ...showErrors, email: true })}
+              onMouseLeave={() => setShowErrors({ ...showErrors, email: false })}
+            >
+              {errors.email && <BiErrorCircle />}
+              {showErrors.email && (
+                <div className="bg-white w-[200px] border border-gray-300 text-red absolute rounded-lg -bottom-10 -right-20 transform -translate-x-1/2 z-10 p-2">
+                  {errors.email}
+                </div>
+              )}
+            </div>
             <input
               name="email"
               type={"email"}
@@ -67,14 +81,29 @@ export default function EmailModal({ onClose }) {
             <label className="text-md font-semibold text-gray-800 w-1/6">
               To:
             </label>
+            <div className="w-[30px]"></div>
             <label className="w-full text-md text-gray-800 border-b-2 border-slate-500">
               brunosarti.bs@gmail.com
             </label>
           </div>
           <div className="flex flex-col gap-2 h-1/3">
-            <label className="text-md font-semibold text-gray-800 w-1/6">
-              Message:
-            </label>
+            <div className="flex">
+              <label className="text-md font-semibold text-gray-800">
+                Message:
+              </label>
+              <div 
+                className="w-[30px] mx-4  flex justify-center items-center relative"
+                onMouseEnter={() => setShowErrors({ ...showErrors, message: true })}
+                onMouseLeave={() => setShowErrors({ ...showErrors, message: false })}
+              >
+                {errors.message && <BiErrorCircle />}
+                {showErrors.message && (
+                <div className="bg-white w-[200px] border border-gray-300 text-red absolute rounded-lg -bottom-10 -right-10 transform -translate-x-1/2 z-10 p-2">
+                  {errors.message}
+                </div>
+                )}
+              </div>
+            </div>
             <textarea
               name="message"
               onChange={onChange}
@@ -85,7 +114,8 @@ export default function EmailModal({ onClose }) {
           </div>
           <button
             type="submit"
-            className={`w-2/4 py-1 bg-gray-800 text-center mx-auto rounded-sm mt-4 text-[#F0F0F0] font-source font-semibold relative left-[40%] hover:cursor-pointer`}
+            disabled={disabled}
+            className={`w-2/4 py-1 bg-gray-800 text-center mx-auto rounded-sm mt-4 text-[#F0F0F0] font-source font-semibold relative left-[40%] hover:cursor-pointer hover:bg-green-700 disabled:hover:bg-gray-800 disabled:hover:cursor-default`}
           >
             {"Send"}
           </button>
