@@ -7,8 +7,12 @@ import Feedback from "../Feedback/Feedback";
 
 function Display() {
   return (
-    <div className="w-full h-0 pb-[56%] bg-white relative z-10 m-auto shadow-md shadow-gray-400">
-      <div className="w-full h-full absolute top-0 left-0 bottom-0 right-0  overflow-y-scroll scrollbar-none">
+    <div
+      className={
+        "w-full md:h-0 md:pb-[56%] bg-white relative z-10 m-auto shadow-md shadow-gray-400"
+      }
+    >
+      <div className="w-full h-full md:absolute md:top-0 md:left-0 md:bottom-0 md:right-0  overflow-y-scroll scrollbar-none">
         <NavBar />
         <Routes>
           <Route path={RoutesHelper.home} element={<Home />} />
