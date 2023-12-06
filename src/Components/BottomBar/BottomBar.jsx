@@ -9,7 +9,7 @@ import react from "../../assets/react.svg";
 
 export default function BottomBar() {
   return (
-    <div className="flex flex-row-reverse gap-4 ml-auto mr-16 max-h-28px">
+    <div className="flex flex-row-reverse gap-4 mx-auto md:ml-auto md:mr-16 max-h-28px">
       <img src={postgresql} alt={"postgresql"} />
       <img src={express} alt={"express"} />
       <img src={node} alt={"node"} />

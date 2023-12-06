@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { RoutesHelper } from "../../utils/routes";
 import { useLocation, useNavigate } from "react-router";
 import { useInView } from "react-intersection-observer";
+import BottomBar from "../../Components/BottomBar/BottomBar";
 
 export default function Home() {
   const lastObject = useRef(null);
@@ -27,6 +28,9 @@ export default function Home() {
     <div className="w-full h-full">
       <div ref={ref}></div>
       <FullStack />
+      <div className="w-full h-full md:invisible my-10 flex">
+        <BottomBar />
+      </div>
       <About />
       <div ref={lastObject}></div>
     </div>
