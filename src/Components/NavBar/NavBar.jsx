@@ -3,6 +3,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import SlashingButton from "../SlashingButton/SlashingButton";
 import { RoutesHelper } from "../../utils/routes";
+import { TfiAlignRight } from "react-icons/tfi";
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -17,11 +18,11 @@ export default function NavBar() {
   };
 
   return (
-    <div className="w-full h-[90px] bg-white flex align-center sticky top-0 left-0 px-10 z-20">
-      <h1 className="font-work font-extrabold text-[22px] self-center ml-2 bg-gray-500 text-transparent [text-shadow:_0_2px_3px_rgba(255,_255,_255,_0.7)] bg-clip-text">
+    <div className="w-full h-[90px] bg-white flex align-center sticky top-0 left-0 md:px-10 z-20">
+      <h1 className="font-work font-extrabold text-[22px] self-center ml-4 md:ml-2 bg-gray-500 text-transparent [text-shadow:_0_2px_3px_rgba(255,_255,_255,_0.7)] bg-clip-text">
         BRUNO SARTI
       </h1>
-      <div className="w-1/2 self-center text-sm ml-auto text-gray-800">
+      <div className="max-md:hidden w-1/2 self-center text-sm ml-auto text-gray-800">
         <ul className="flex flex-row justify-around">
           <li
             className={`font-source font-semibold my-auto hover:cursor-pointer relative ${
@@ -55,6 +56,11 @@ export default function NavBar() {
             Feedback
           </li>
         </ul>
+      </div>
+      <div className="md:hidden ml-auto mr-4 grid place-content-center">
+        <div className="p-5 rounded-tl-[10%] rounded-tr-[20%] rounded-br-[40%] rounded-bl-[20%] bg-white shadow-md hover:cursor-pointer">
+          <TfiAlignRight className="w-7 h-auto" color="#444444" />
+        </div>
       </div>
     </div>
   );

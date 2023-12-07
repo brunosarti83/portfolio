@@ -28,7 +28,7 @@ export default function Home() {
     <div className="w-full h-full">
       <div ref={ref}></div>
       <FullStack />
-      <div className="w-full h-full md:invisible my-10 flex">
+      <div className="w-full h-full md:hidden my-10 flex">
         <BottomBar />
       </div>
       <About />
