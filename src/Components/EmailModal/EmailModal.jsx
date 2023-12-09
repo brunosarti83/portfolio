@@ -3,6 +3,8 @@ import emailjs from "@emailjs/browser";
 import image from "../../assets/beard.jpg";
 import { BiErrorCircle } from "react-icons/bi";
 import { validateMessage } from "../../utils/validateMessage";
+import { AiOutlineClose } from "react-icons/ai";
+import debounce from "debounce";
 
 export default function EmailModal({ onClose }) {
   const [form, setForm, resetForm] = useReset({
@@ -22,7 +24,7 @@ export default function EmailModal({ onClose }) {
     const field = e.target.name;
     const value = e.target.value;
     setForm({ ...form, [field]: value });
-    setErrors(validateMessage({...form, [field]: value}))
+    setErrors(validateMessage({ ...form, [field]: value }));
   };
 
   const onSubmit = (e) => {
@@ -36,37 +38,50 @@ export default function EmailModal({ onClose }) {
     resetForm();
     onClose();
   };
-  let disabled = (errors.email || errors.message || !form.email || !form.message)
+
+  let disabled = errors.email || errors.message || !form.email || !form.message;
 
   return (
-    <div className="w-full h-full flex mx-auto gap-2">
-      <div className="w-[50%] h-1000 bg-red-200 ml-auto overflow-hidden">
+    <div className="w-full md:h-full h-[90dvh] flex mx-auto gap-2 relative">
+      <div
+        onClick={onClose}
+        className="bg-zinc-800 text-white font-source font-semibold px-3 py-1 rounded-bl-[4px] absolute top-0 right-0 hover:cursor-pointer flex justify-center items-center"
+      >
+        <AiOutlineClose color="FFFFFF" />
+      </div>
+      <div className="w-1/3 md:w-[50%] h-1000 bg-red-200 ml-auto overflow-hidden">
         <img
           src={image}
           alt="mail illustration"
           className="object-cover h-full object-center p-0 m-0"
         />
       </div>
-      <div className="w-[50%] h-full ml-auto p-4 pt-[70px] pb-[50px] bg-zinc-100 rounded-[2px]">
+      <div className="w-2/3 md:w-[50%] h-full ml-auto p-4 pt-[70px] pb-[50px] bg-zinc-100 rounded-[2px]">
         <form
           onSubmit={onSubmit}
           className="w-full h-full flex flex-col gap-14 font-source"
         >
-          <div className="flex gap-4">
-            <label className="text-md font-semibold text-gray-800 w-1/6">
-              From:
-            </label>
-            <div 
-             className="w-[30px] flex justify-center items-center relative"
-              onMouseEnter={() => setShowErrors({ ...showErrors, email: true })}
-              onMouseLeave={() => setShowErrors({ ...showErrors, email: false })}
-            >
-              {errors.email && <BiErrorCircle />}
-              {showErrors.email && (
-                <div className="bg-white w-[200px] border border-gray-300 text-red absolute rounded-lg -bottom-10 -right-20 transform -translate-x-1/2 z-10 p-2">
-                  {errors.email}
-                </div>
-              )}
+          <div className="flex max-md:flex-col max-md:gap-1">
+            <div className="flex gap-8">
+              <label className="text-md font-semibold text-gray-800 w-1/6">
+                From:
+              </label>
+              <div
+                className="w-[30px] flex justify-center items-center relative"
+                onMouseEnter={() =>
+                  setShowErrors({ ...showErrors, email: true })
+                }
+                onMouseLeave={() =>
+                  setShowErrors({ ...showErrors, email: false })
+                }
+              >
+                {errors.email && <BiErrorCircle />}
+                {showErrors.email && (
+                  <div className="bg-white w-[200px] border border-gray-300 text-red absolute rounded-lg -bottom-10 -right-20 transform -translate-x-1/2 z-10 p-2">
+                    {errors.email}
+                  </div>
+                )}
+              </div>
             </div>
             <input
               name="email"
@@ -77,11 +92,13 @@ export default function EmailModal({ onClose }) {
               className="bg-zinc-200 w-full text-md text-gray-800 border-b-2 border-slate-500"
             />
           </div>
-          <div className="flex gap-4">
-            <label className="text-md font-semibold text-gray-800 w-1/6">
-              To:
-            </label>
-            <div className="w-[30px]"></div>
+          <div className="flex max-md:flex-col">
+            <div className="flex gap-14">
+              <label className="text-md font-semibold text-gray-800 w-1/6">
+                To:
+              </label>
+              <div className="w-[30px]"></div>
+            </div>
             <label className="w-full text-md text-gray-800 border-b-2 border-slate-500">
               brunosarti.bs@gmail.com
             </label>
@@ -91,16 +108,20 @@ export default function EmailModal({ onClose }) {
               <label className="text-md font-semibold text-gray-800">
                 Message:
               </label>
-              <div 
+              <div
                 className="w-[30px] mx-4  flex justify-center items-center relative"
-                onMouseEnter={() => setShowErrors({ ...showErrors, message: true })}
-                onMouseLeave={() => setShowErrors({ ...showErrors, message: false })}
+                onMouseEnter={() =>
+                  setShowErrors({ ...showErrors, message: true })
+                }
+                onMouseLeave={() =>
+                  setShowErrors({ ...showErrors, message: false })
+                }
               >
                 {errors.message && <BiErrorCircle />}
                 {showErrors.message && (
-                <div className="bg-white w-[200px] border border-gray-300 text-red absolute rounded-lg -bottom-10 -right-10 transform -translate-x-1/2 z-10 p-2">
-                  {errors.message}
-                </div>
+                  <div className="bg-white w-[200px] border border-gray-300 text-red absolute rounded-lg -bottom-10 -right-10 transform -translate-x-1/2 z-10 p-2">
+                    {errors.message}
+                  </div>
                 )}
               </div>
             </div>
@@ -115,7 +136,7 @@ export default function EmailModal({ onClose }) {
           <button
             type="submit"
             disabled={disabled}
-            className={`w-2/4 py-1 bg-gray-800 text-center mx-auto rounded-sm mt-4 text-[#F0F0F0] font-source font-semibold relative left-[40%] hover:cursor-pointer hover:bg-green-700 disabled:hover:bg-gray-800 disabled:hover:cursor-default`}
+            className={`w-2/3 md:w-1/2 py-1 bg-zinc-800 text-center mx-auto rounded-sm mt-4 text-[#F0F0F0] font-source font-semibold relative md:left-[40%] hover:cursor-pointer hover:bg-green-700 disabled:hover:bg-gray-800 disabled:hover:cursor-default`}
           >
             {"Send"}
           </button>

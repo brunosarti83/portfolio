@@ -2,10 +2,10 @@ import Form from "../../Components/Form/Form";
 
 export default function Feedback() {
   return (
-    <div className="flex min-h-[calc(100%_-_90px)] w-full bg-teal-100">
-      <div className="flex flex-col w-[55%] pl-8 pr-4 mt-2">
-        <h1 className="font-work font-extrabold text-[85px] leading-[72px] text-teal-100 drop-shadow-dark">
-          Would you mind a question?
+    <div className="flex flex-col md:flex-row min-h-[calc(100%_-_90px)] w-full bg-teal-100 max-md:pt-4">
+      <div className="flex flex-col md:w-[55%] pl-8 pr-4 mt-2">
+        <h1 className="font-work font-extrabold text-[65px] leading-[55px] md:text-[85px] md:leading-[72px] text-teal-100 drop-shadow-dark">
+          Would you <p className="break-keep">mind a</p> question?
         </h1>
         <div className="m-12 ml-0">
           <p className="font-source font-semibold text-[14px] text-gray-800">
@@ -21,7 +21,7 @@ export default function Feedback() {
           </p>
         </div>
       </div>
-      <div className="h-[100%] w-[40%] m-auto">
+      <div className="h-[100%] md:w-[40%] m-auto">
         <Form />
       </div>
     </div>

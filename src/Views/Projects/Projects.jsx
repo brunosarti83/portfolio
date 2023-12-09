@@ -11,7 +11,9 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className={`w-full h-full bg-[#F0F0F0] relative`}>
+    <div
+      className={`max-md:flex flex-col gap-8 max-md:pb-20 w-full h-full bg-[#F0F0F0] relative`}
+    >
       <Project project={projects[0]} />
       <div ref={firstObjectBottom}></div>
       <Project project={projects[1]} />

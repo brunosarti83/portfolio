@@ -3,6 +3,7 @@ import { useState } from "react";
 import { formatRow } from "../../utils/formatRow";
 import { postAnswer } from "../../utils/postAnswer";
 import { useReset } from "../../utils/useReset";
+import debounce from "debounce";
 
 export default function Form() {
   const [form, setForm, resetForm] = useReset({
@@ -10,7 +11,10 @@ export default function Form() {
     question2: [[], { other: "" }],
   });
   const [disabledInput, setDisabledInput] = useState(true);
-
+  const isBlank =
+    !form.question1.length &&
+    !form.question2[0].length &&
+    !form.question2[1].other;
   const colorBook = {
     1: "text-green-700",
     2: "text-blue-500",
@@ -46,18 +50,21 @@ export default function Form() {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    const response = await postAnswer({
-      row: formatRow(form),
-      table_name: "Answers",
-    });
-    if (Object.keys(response).length === 11) {
-      console.log("success"); // could replace with toast
-      resetForm();
-      setDisabledInput(true);
+    if (!isBlank) {
+      const response = await postAnswer({
+        row: formatRow(form),
+        table_name: "Answers",
+      });
+      if (Object.keys(response).length === 11) {
+        console.log("success"); // could replace with toast
+        resetForm();
+        setDisabledInput(true);
+      }
     }
   };
+  const onSubmitDebounced = debounce(onSubmit, 300, true);
   return (
-    <div className="flex flex-col h-full w-[90%] bg-[#F0F0F0] drop-shadow-md rounded-md p-2 py-4">
+    <div className="flex flex-col h-full w-[90%] bg-[#F0F0F0] drop-shadow-md rounded-md p-2 py-4 max-md:mx-auto max-md:mb-4">
       <form className="m-auto w-[95%]">
         <div className="flex flex-col mx-auto">
           <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-2 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
@@ -153,8 +160,10 @@ export default function Form() {
           </div>
         </div>
         <div
-          className="w-full text-center align-middle font-source font-bold m-auto py-2 cursor-pointer"
-          onClick={onSubmit}
+          onClick={onSubmitDebounced}
+          className={`w-1/3 text-center align-middle font-source font-bold m-auto py-2 cursor-pointer ${
+            isBlank && "text-gray-300 cursor-default"
+          }`}
         >
           Submit
         </div>
