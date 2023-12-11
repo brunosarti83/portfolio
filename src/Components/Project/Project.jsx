@@ -7,7 +7,9 @@ export default function Project({ project }) {
   return (
     <div className="flex max-md:flex-col-reverse max-md:gap-6 w-full h-[calc(100%_-_90px)] md:pl-6 pt-6 z-[5] bg-[#F0F0F0]">
       <div className="flex flex-col md:w-1/2 p-2 mx-auto gap-10 md:pl-4">
-        <Carousel images={project.images} />
+        <div className="min-h-[190px] md:min-h-[230px]">
+          <Carousel images={project.images} />
+        </div>
         <div className="flex mx-auto justify-between gap-10 -pl-2">
           <BigButton
             centralText="Visit Site"
