@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import aboutImg from "../../assets/aboutImg.jpeg";
 import { RoutesHelper } from "../../utils/routes";
+import { IoMdArrowRoundForward } from "react-icons/io";
 
 export default function About() {
   const navigate = useNavigate();
@@ -75,7 +76,7 @@ export default function About() {
         </div>
       </div>
       <div
-        className={`w-[90%] max-md:top-2 relative md:w-full font-source text-[16px] mx-auto font-semibold text-center bg-[#0f0f0f] text-white p-4 mb-4 rounded-md shadow-md shadow-gray-800 hover:cursor-pointer transition-all duration-1000 hover:translate-y-[-5px]`}
+        className={`w-[90%] max-md:top-2 relative md:w-full font-source text-[16px] mx-auto font-semibold text-center bg-gray-800 not-bg-[#0f0f0f] text-white p-4 mb-4 rounded-md shadow-md shadow-gray-800 hover:cursor-pointer transition-all duration-1000 hover:translate-y-[-5px]`}
         onClick={() => navigate(RoutesHelper.projects)}
       >
         Continue to Projects
