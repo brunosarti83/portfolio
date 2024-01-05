@@ -12,7 +12,7 @@ function Display() {
         "w-full md:h-0 md:pb-[56%] relative z-10 m-auto shadow-md shadow-gray-400 max-md:mt-[90px]"
       }
     >
-      <div className="w-full h-full md:absolute md:top-0 md:left-0 md:bottom-0 md:right-0  overflow-y-scroll scrollbar-none">
+      <div className="w-full h-full md:absolute md:top-0 md:left-0 md:bottom-0 md:right-0 overflow-x-hidden overflow-y-scroll scrollbar-none">
         <NavBar />
         <Routes>
           <Route path={RoutesHelper.home} element={<Home />} />
