@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import Form from "../../Components/Form/Form";
 
 export default function Feedback() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  },[]);
+
   return (
     <div className="flex flex-col md:flex-row min-h-[calc(100%_-_90px)] w-full bg-teal-100 max-md:pt-4">
       <div className="flex flex-col md:w-[55%] pl-8 pr-4 mt-2">
@@ -17,7 +32,7 @@ export default function Feedback() {
           <br />
           <p className="font-source font-semibold text-[14px] text-gray-800">
             If you would like to contact me directly you can use the social
-            media links on the right margin of this page.
+            media links on the {windowWidth > 767 ? "right margin of this page." : "bottom of this page."}
           </p>
         </div>
       </div>
