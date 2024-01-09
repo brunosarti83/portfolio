@@ -119,6 +119,52 @@ export const projects = [
     },
 ];
 
+export const bots = {
+    backtesting: {
+        description: [
+            'Downloads historical data of multiple tokens and formats it using Pandas, then saves all the data into an sqlite database.',
+            'Specific strategies can be manually created and exported in order to provide the backtester with entry and exit signals.',
+            'Allows for multiple settings: time_interval, position_size, trailing or fixed stops, take_profit, commissions, and many more; as well as strategy specific settings such as moving_avg length, stop size, etc... all settings are provided as lists containing one or more values... all combinations of every value will be tested on execution and treated as a separate set of results.',
+            'All testing is run using multiprocessing in order to reduce time expenditure.',
+            'Once all tests are done results are compared and saved on a spreadsheet with graphs.',
+            'Can execute walk_forward testing (meaning it combines periods of “historical” testing to select parameters to then “forward_test” what would be a period of “real_time” implementation, finally it presents all the “real_time” periods together as a single stream of results lowering the effect of curve fitting on the tests). '
+        ],
+        repository: 'https://github.com/brunosarti83/backtester_X_crypto'
+    },
+    entry1bot: {
+        description: [
+            'Trades Crypto futures.',
+            'Trades volatility breakouts.',
+            'Makes all trading decissions on candle close, buys or sells at next candles open price.',
+            'Logs all operations.',
+            'Informs prices, trades and results via Telegram chatbot.'
+        ],
+        repository: 'https://github.com/brunosarti83/entry1bot'
+    },
+    barhlbot: {
+        description: [
+            'Trades Crypto futures.',
+            'Trades in the direction of the trend when extension occurs in the opposite direction.',
+            'Receives price quotes on real time through websockets, allowing for trading decisions to be made at any moment.',
+            'Logs all operations and saves them on spreadsheet.',
+            'Informs prices, trades and results via Telegram chatbot.'
+        ],
+        repository: 'https://github.com/brunosarti83/3barhlbot'
+    },
+    momentumbot: {
+        description: [
+            'Trades Crypto futures.',
+            'Trades simple price breakouts.',
+            'Receives price quotes on real time through websockets, allowing for trading decisions to be made at any moment.',
+            'Handles a portfolio of multiple tokens.',
+            'Makes use of multithreading to take multiple trades simultaneously.',
+            'Logs all operations and saves them on spreadsheet.',
+            'Informs prices, trades and results via Telegram chatbot.'
+        ],
+        repository: 'https://github.com/brunosarti83/momentumbot'
+    }
+}
+
 export const questions = {
     skills: ["React", "Node", "Typescript", "CSS / Styling", "Databases"],
     not: ["Angular", ".NET", "Mobile"]
