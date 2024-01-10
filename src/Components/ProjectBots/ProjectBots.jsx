@@ -27,6 +27,7 @@ function ProjectBots() {
         <Display
           title="Backtesting Software"
           content={backtesting.description}
+          link={backtesting.repository}
         />
         <div className="flex gap-4">
           <div className="w-1/3">

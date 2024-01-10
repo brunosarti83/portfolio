@@ -25,10 +25,14 @@ function Display({ title, content, link }) {
             </li>
           ))}
         </ul>
-        <FaArrowUpRightFromSquare className="inline mb-1" />
-        <a href={link} className="inline ml-2">
-          visit repository
-        </a>
+        {link ? (
+          <div className="flex gap-2">
+            <FaArrowUpRightFromSquare className="" />
+            <a href={link} className="underline">
+              visit repository
+            </a>
+          </div>
+        ) : null}
       </div>
     </div>
   );
