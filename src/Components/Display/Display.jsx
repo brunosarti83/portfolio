@@ -25,6 +25,7 @@ function Display({ title, content, link }) {
             </li>
           ))}
         </ul>
+        <br />
         {link ? (
           <div className="flex gap-2">
             <FaArrowUpRightFromSquare className="" />
