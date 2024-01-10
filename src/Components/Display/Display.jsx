@@ -24,7 +24,7 @@ function Display({ title, content, link }) {
         </button>
       </div>
       <motion.div
-        className="px-10 pb-4 text-sm bg-gray-150 border-[1px] border-gray-500 overflow-hidden"
+        className="px-10 pb-[20px] text-sm bg-gray-150 border-[1px] border-gray-500 overflow-hidden"
         variants={variants}
         animate={open ? "open" : "closed"}
       >

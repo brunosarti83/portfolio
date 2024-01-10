@@ -8,17 +8,16 @@ export default function Projects() {
 
   useEffect(() => {
     firstObjectTop.current.scrollIntoView(false);
-  }, []);
+  });
 
   return (
     <div
       className={`max-md:flex flex-col gap-8 max-md:pb-20 w-full h-full bg-[#F0F0F0] relative`}
     >
-      <div ref={firstObjectTop}></div>
+      <div ref={firstObjectTop} className="snap-normal snap-start"></div>
       <Project project={projects[0]} />
       <div className="snap-normal snap-start"></div>
       <Project project={projects[1]} />
-      <div className="snap-normal snap-start"></div>
       <ProjectBots />
     </div>
   );
