@@ -1,6 +1,7 @@
 import { projects } from "../../db";
 import Project from "../../Components/Project/Project";
 import { useEffect, useRef } from "react";
+import ProjectBots from "../../Components/ProjectBots/ProjectBots";
 
 export default function Projects() {
   const firstObjectTop = useRef(null);
@@ -16,6 +17,7 @@ export default function Projects() {
       <div ref={firstObjectTop}></div>
       <Project project={projects[0]} />
       <Project project={projects[1]} />
+      <ProjectBots />
     </div>
   );
 }
