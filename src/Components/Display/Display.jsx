@@ -2,9 +2,18 @@
 import { useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 function Display({ title, content, link }) {
   const [open, setOpen] = useState(false);
+
+  const variants = {
+    closed: {
+      height: 0,
+      paddingBottom: 0,
+    },
+    open: {},
+  };
 
   return (
     <div className="w-full flex flex-col gap-0 font-source">
@@ -14,9 +23,10 @@ function Display({ title, content, link }) {
           <MdOutlineKeyboardArrowDown className="text-[26px] text-gray-600" />
         </button>
       </div>
-      <div
+      <motion.div
         className="px-10 pb-4 text-sm bg-gray-150 border-[1px] border-gray-500 overflow-hidden"
-        style={open ? null : { height: 0, paddingBottom: 0 }} // animate with motion component
+        variants={variants}
+        animate={open ? "open" : "closed"}
       >
         <ul className="list-disc">
           {content.map((bullet, index) => (
@@ -34,7 +44,7 @@ function Display({ title, content, link }) {
             </a>
           </div>
         ) : null}
-      </div>
+      </motion.div>
     </div>
   );
 }
