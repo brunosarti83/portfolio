@@ -12,7 +12,7 @@ export default function Projects() {
 
   return (
     <div
-      className={`max-md:flex flex-col gap-8 max-md:pb-20 w-full h-full bg-[#F0F0F0] relative snap-y snap-mandatory`}
+      className={`max-md:flex flex-col gap-8 max-md:pb-20 w-full h-full bg-[#F0F0F0] relative`}
     >
       <div ref={firstObjectTop}></div>
       <Project project={projects[0]} />

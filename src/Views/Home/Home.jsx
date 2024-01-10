@@ -8,6 +8,7 @@ import BottomBar from "../../Components/BottomBar/BottomBar";
 import axios from "axios";
 
 export default function Home() {
+  const firstObject = useRef(null);
   const lastObject = useRef(null);
   const { pathname } = useLocation();
   const { ref, inView } = useInView();
@@ -30,8 +31,18 @@ export default function Home() {
     }
   }, [inView, navigate]);
 
+  useEffect(() => {
+    if (pathname === RoutesHelper.home) {
+      firstObject.current.scrollIntoView({
+        behaviour: "smooth",
+        block: "end",
+      });
+    }
+  });
+
   return (
     <div className="w-full h-full">
+      <div ref={firstObject}></div>
       <div ref={ref}></div>
       <FullStack />
       <div className="w-full h-full md:hidden my-10 flex">
