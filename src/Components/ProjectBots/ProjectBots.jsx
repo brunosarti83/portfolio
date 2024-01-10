@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-import githubIcon from "../../assets/githubB.svg";
-import BigButton from "../BigButton/BigButton";
 import { IoLogoPython } from "react-icons/io5";
 import { bots } from "../../db";
 import Display from "../Display/Display";
