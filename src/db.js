@@ -175,3 +175,36 @@ export const socialMedia = {
     github: "https://github.com/brunosarti83",
 }
 
+export const aboutText = [
+    "Hi, i’m a recently graduated Fullstack",
+    "developer from Argentina. 💻 🧉",  
+    "/",
+    "Welcome to my portfolio, it is an ever",
+    "evolving work in progress which i keep",
+    "updating as i find new projects and new",
+    "technologies that interest me.", 
+    "/",
+    "Currently skilled in React and Node.js,", 
+    "I am regularly using tech such as:", 
+    " Express | Sequelize | Mongoose",
+    " Passport | Nodemailer",
+    " Redux | Tailwind | CSS | HTML",
+    " and SQL as well as NoSql databases.", 
+    "/",
+    "Having a background of over 15 years", 
+    "in the advertising industry, i have", 
+    "experience using design software such",
+    "as Adobe Illustrator some years ago", 
+    "and now love using Figma for designs",
+    "and wireframes.",  
+    "/",
+    "You will find each project here has", 
+    "links to it’s deployed site as well as",
+    "to it’s  Github repository, please",
+    "look around and know that", 
+    "any feedback is very much",
+    "appreciated.",
+    "/",
+    " --"
+]
+
