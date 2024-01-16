@@ -1,6 +1,6 @@
 import linkedinIcon from "../../assets/linkedin.svg";
 import githubIcon from "../../assets/github.svg";
-import gmailIcon from "../../assets/gmail.svg";
+import { TfiEmail } from "react-icons/tfi";
 import { socialMedia } from "../../db";
 import Modal from "react-modal";
 import { useState } from "react";
@@ -26,10 +26,8 @@ export default function SideBar() {
           />
         </a>
         <div onClick={() => setEmailModalOpen(true)}>
-          <img
-            src={gmailIcon}
-            alt={"gmail"}
-            className="transition-size duration-700 hover:transform-gpu hover:scale-150 hover:cursor-pointer"
+          <TfiEmail
+            className="text-2xl text-gray-800 transition-size duration-700 hover:transform-gpu hover:scale-150 hover:cursor-pointer"
           />
         </div>
       </div>
