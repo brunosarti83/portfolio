@@ -11,7 +11,7 @@ export default function SvgText() {
         autoPlay
         muted
         playsInline
-        className="w-full h-full object-fill relative max-md:bottom-20 -scale-x-100"
+        className="w-full h-full object-cover relative max-md:bottom-20 -scale-x-100"
       ></video>
       <div className="w-full font-work font-extrabold text-[7rem] leading-[6rem] md:text-[160px] md:leading-[130px] tracking-tighter text-white absolute top-0 left-0 h-full bg-black mix-blend-multiply px-10">
         <motion.h1
