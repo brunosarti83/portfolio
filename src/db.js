@@ -114,7 +114,7 @@ export const projects = [
             url: "https://res.cloudinary.com/daiztctac/image/upload/v1699729846/uq5baaleouhcdkzqk3vt.webp",
         },
         ],
-        deploy: "https://pokemonapp-eight.vercel.app/",
+        deploy: "http://3.137.191.150/",
         repository: "https://github.com/brunosarti83/pokemonapp",
     },
 ];
