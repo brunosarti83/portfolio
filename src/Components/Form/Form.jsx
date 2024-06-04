@@ -70,7 +70,7 @@ export default function Form() {
           <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-2 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
             <label htmlFor="question1">
               1. Would you click on these skills in order of importance for you
-              or for the position you where looking to fill ?
+              or for the position you were looking to fill ?
             </label>
             <span
               className="ml-auto cursor-pointer"
@@ -103,7 +103,7 @@ export default function Form() {
           </div>
           <div className="bg-[#F0F0F0] flex flex-col w-full mx-auto p-2 border-1 border-black drop-shadow-md text-xs font-source font-semibold z-5">
             <label htmlFor="question2">
-              2. Where you looking for something you didn’t find here ?
+              2. Were you looking for something you didn’t find here ?
             </label>
             <span
               className="ml-auto cursor-pointer"
